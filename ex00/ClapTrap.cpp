@@ -1,6 +1,6 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() :Name(""), EnergyPoints(10), AttackDamage(0)
+ClapTrap::ClapTrap() :Name(""), EnergyPoints(10), AttackDamage(0), HitPoints(10)
 {
     std::cout<<"Default constructor called"<<std::endl;
     std::cout<<"An anonymous ClapTrap created"<<std::endl;
