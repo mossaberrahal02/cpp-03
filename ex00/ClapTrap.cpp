@@ -46,7 +46,7 @@ AttackDamage(0)
 
 void ClapTrap::attack(const std::string& target)
 {
-    if(this->EnergyPoints > 0)
+    if(this->EnergyPoints > 0 && this->HitPoints > 0)
     {
         std::cout<<"ClapTrap "<<this->getName()<<" attacks "<<target<<", causing "<<this->getAttackDamage()<<" points of damage!"<<std::endl;
         this->EnergyPoints -= 1;
@@ -56,7 +56,7 @@ void ClapTrap::attack(const std::string& target)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-    if(this->HitPoints > 0)
+    if(this->EnergyPoints > 0 && this->HitPoints > 0)
     {
         std::cout<<this->getName()<<" repairing +"<<amount<<std::endl;
         this->EnergyPoints -= 1;
