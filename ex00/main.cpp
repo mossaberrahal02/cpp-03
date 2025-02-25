@@ -2,8 +2,12 @@
 
 int main()
 {
-    ClapTrap test("mossab");
-    test.attack("hadouk li ka ysed3ou f e1");
-    test.beRepaired(20);
-    test.takeDamage(4);
+    ClapTrap mossab("mossab");
+    ClapTrap afnane("afnane");
+
+    mossab.attack(afnane.getName());
+    afnane.takeDamage(5);
+    std::cout<<afnane.getName()<<" before reparing "<<afnane.getHitPoints()<<std::endl;
+    afnane.beRepaired(5);
+    std::cout<<afnane.getName()<<" after reparing "<<afnane.getHitPoints()<<std::endl;
 }
