@@ -7,6 +7,12 @@ int main()
 
     mossab.attack(afnane.getName());
     afnane.takeDamage(5);
+    afnane.takeDamage(5);
+    afnane.takeDamage(5);
+    afnane.takeDamage(5);
+    afnane.takeDamage(5);
+    afnane.takeDamage(5);
+    afnane.takeDamage(5);
     std::cout<<afnane.getName()<<" before reparing "<<afnane.getHitPoints()<<std::endl;
     afnane.beRepaired(5);
     std::cout<<afnane.getName()<<" after reparing "<<afnane.getHitPoints()<<std::endl;

@@ -62,8 +62,12 @@ void ClapTrap::beRepaired(unsigned int amount)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
+    if(this->HitPoints > 0)
+    {
         std::cout<<this->getName()<<" is getting damaged losing "<<amount<<"HP"<<std::endl;
         this->HitPoints -= amount;
+    }else
+        std::cout<<this->getName()<<" alrady dead -_-"<<std::endl;
 }
 
 std::string ClapTrap::getName() const
