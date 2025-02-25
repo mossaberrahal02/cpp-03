@@ -51,7 +51,7 @@ void ClapTrap::attack(const std::string& target)
         std::cout<<"ClapTrap "<<this->getName()<<" attacks "<<target<<", causing "<<this->getAttackDamage()<<" points of damage!"<<std::endl;
         this->EnergyPoints -= 1;
     }else
-        std::cout<<this->getName()<<" has no energy"<<std::endl;
+        std::cout<<this->getName()<<" alrady dead or no more energy -_-"<<std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
@@ -63,7 +63,7 @@ void ClapTrap::beRepaired(unsigned int amount)
         this->HitPoints += amount;
     }
     else
-        std::cout<<this->getName()<<" alrady dead -_-"<<std::endl;
+        std::cout<<this->getName()<<" alrady dead or no more energy -_-"<<std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
@@ -73,7 +73,7 @@ void ClapTrap::takeDamage(unsigned int amount)
         std::cout<<this->getName()<<" is getting damaged losing "<<amount<<"HP"<<std::endl;
         this->HitPoints -= amount;
     }else
-        std::cout<<this->getName()<<" alrady dead -_-"<<std::endl;
+        std::cout<<this->getName()<<" alrady dead or no more energy -_-"<<std::endl;
 }
 
 std::string ClapTrap::getName() const
