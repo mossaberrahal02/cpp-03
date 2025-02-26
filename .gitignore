@@ -1,4 +1,5 @@
 *.out
+en.subject.pdf
 *.o
 .vscode
 out
