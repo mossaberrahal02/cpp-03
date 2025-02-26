@@ -69,9 +69,7 @@ void ClapTrap::beRepaired(unsigned int amount)
     {
         std::cout<<this->getName()<<" repairing +"<<amount<<std::endl;
         this->EnergyPoints -= 1;
-        std::cout<<" beReoaired() before this->HitPoints = "<<this->HitPoints<<std::endl;
         this->HitPoints += amount;
-        std::cout<<" beReoaired() after this->HitPoints = "<<this->HitPoints<<std::endl;
     }
     else
     {
@@ -87,9 +85,7 @@ void ClapTrap::takeDamage(unsigned int amount)
     if(this->HitPoints > 0 && this->EnergyPoints > 0)
     {
         std::cout<<this->getName()<<" is getting damaged losing "<<amount<<"HP"<<std::endl;
-        std::cout<<" takeDamege() before this->HitPoints = "<<this->HitPoints<<std::endl;
         this->HitPoints -= amount;
-        std::cout<<" takeDamege() after this->HitPoints = "<<this->HitPoints<<std::endl;
     }
     else
     {
