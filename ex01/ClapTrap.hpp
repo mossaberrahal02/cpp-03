@@ -2,6 +2,10 @@
 #include <iostream>
 #include <string>
 
+#define RED 31
+#define GREEN 32
+#define BLUE 34
+
 class ClapTrap
 {
     private:
@@ -30,3 +34,5 @@ class ClapTrap
         void setEnergyPoints(int EnergyPoints);
         void setAttackDamage(int AttackDamage);
 };
+void SetColor(int textColor);
+void ResetColor( void );

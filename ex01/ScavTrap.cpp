@@ -1,13 +1,15 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap( void )
+ScavTrap::ScavTrap( void ) : ClapTrap()
 {
     std::cout<<"ScavTrap Default Constructor called"<<std::endl;
 }
 
 ScavTrap::ScavTrap(std::string Name): ClapTrap(Name)
 {
+    SetColor(GREEN);
     std::cout<<"ScavTrap Parametrized Constructor called"<<std::endl;
+    ResetColor();
     setHitPoints(100);
     setEnergyPoints(50);
     setAttackDamage(20);
@@ -15,24 +17,25 @@ ScavTrap::ScavTrap(std::string Name): ClapTrap(Name)
 
 ScavTrap::~ScavTrap( void )
 {
+    SetColor(RED);
     std::cout<<"ScavTrap distructor called"<<std::endl;
+    ResetColor();
 }
 
-ScavTrap::ScavTrap(ScavTrap &obj):ClapTrap(obj)
+ScavTrap::ScavTrap(const ScavTrap &obj):ClapTrap(obj)
 {
     std::cout<<"ScavTrap Copy Constructor called"<<std::endl;
-    *this = obj;
 }
 
-ScavTrap& ScavTrap::operator=(ScavTrap& Obj)
+ScavTrap& ScavTrap::operator=(const ScavTrap& Obj)
 {
     std::cout<<"ScavTrap Copy assignement operator called"<<std::endl;
     if(this != &Obj)
-    {
-        this->setName(Obj.getName());
-        this->setAttackDamage(Obj.getAttackDamage());
-        this->setHitPoints(Obj.getHitPoints());
-        this->setEnergyPoints(Obj.getEnergyPoints());
-    }
+        ClapTrap::operator=(Obj);
     return *this;
+}
+
+void ScavTrap::guardGate()
+{
+    std::cout << "ScavTrap " << getName() << " has entered Gatekeeper mode" << std::endl;
 }

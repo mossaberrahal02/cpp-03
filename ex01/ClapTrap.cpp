@@ -13,7 +13,9 @@ AttackDamage(0)
 
 ClapTrap::~ClapTrap()
 {
-    std::cout<<"ClapTrap destructor called"<<std::endl;    
+    SetColor(RED);
+    std::cout<<"ClapTrap destructor called"<<std::endl; 
+    ResetColor();
 }
 
 ClapTrap::ClapTrap(const ClapTrap& Obj)
@@ -28,12 +30,13 @@ ClapTrap::ClapTrap(const ClapTrap& Obj)
 ClapTrap& ClapTrap::operator=(const ClapTrap& Obj)
 {
     std::cout<<"ClapTrap Copy assignement operator called"<<std::endl;
-    if(this == &Obj)
-        return *this;
-    this->Name = Obj.getName();
-    this->HitPoints = Obj.getHitPoints();
-    this->EnergyPoints = Obj.getEnergyPoints();
-    this->AttackDamage = Obj.getAttackDamage();
+    if(this != &Obj)
+    {
+        this->Name = Obj.getName();
+        this->HitPoints = Obj.getHitPoints();
+        this->EnergyPoints = Obj.getEnergyPoints();
+        this->AttackDamage = Obj.getAttackDamage();
+    }
     return *this;
 }
 
@@ -43,7 +46,9 @@ HitPoints(10),
 EnergyPoints(10),
 AttackDamage(0)
 {
+    SetColor(GREEN);
     std::cout<<"ClapTrap Parametrized constructor called"<<std::endl;
+    ResetColor();
     std::cout<<this->getName()<<" created"<<std::endl;
     std::cout<<"    * Energy Pointes = "<<this->getEnergyPoints()<<std::endl;
 }
@@ -128,4 +133,13 @@ void ClapTrap::setAttackDamage(int AttackDamage)
 void ClapTrap::setName(std::string Name)
 {
     this->Name = Name;
+}
+
+void SetColor(int textColor)
+{
+    std::cout << "\033[" << textColor << "m";
+}
+void ResetColor() 
+{
+    std::cout << "\033[0m";
 }
