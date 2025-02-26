@@ -6,9 +6,9 @@ class ClapTrap
 {
     private:
         std::string Name;
-        unsigned int HitPoints;//health points
-        unsigned int EnergyPoints;//energy to attack
-        unsigned int AttackDamage;//his power
+        int HitPoints;//health points
+        int EnergyPoints;//energy to attack
+        int AttackDamage;//his power
     public:
         ClapTrap();
         ~ClapTrap();//destructor
@@ -19,7 +19,7 @@ class ClapTrap
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
         std::string getName() const ;
-        unsigned int getHitPoints() const ;
-        unsigned int getEnergyPoints() const ;
-        unsigned int getAttackDamage() const ;
+        int getHitPoints() const ;
+        int getEnergyPoints() const ;
+        int getAttackDamage() const ;
 };

@@ -1,6 +1,10 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() :Name(""), EnergyPoints(10), AttackDamage(0), HitPoints(10)
+ClapTrap::ClapTrap():
+Name(""),
+HitPoints(10),
+EnergyPoints(10),
+AttackDamage(0)
 {
     std::cout<<"Default constructor called"<<std::endl;
     std::cout<<"An anonymous ClapTrap created"<<std::endl;
@@ -51,7 +55,12 @@ void ClapTrap::attack(const std::string& target)
         std::cout<<"ClapTrap "<<this->getName()<<" attacks "<<target<<", causing "<<this->getAttackDamage()<<" points of damage!"<<std::endl;
         this->EnergyPoints -= 1;
     }else
-        std::cout<<this->getName()<<" alrady dead or no more energy -_-"<<std::endl;
+    {
+        if(this->EnergyPoints == 0)
+            std::cout<<this->getName()<<" no more energy -_-"<<std::endl;
+        else if(this->HitPoints == 0)
+            std::cout<<this->getName()<<" no more HP -_-"<<std::endl;
+    }
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
@@ -60,35 +69,50 @@ void ClapTrap::beRepaired(unsigned int amount)
     {
         std::cout<<this->getName()<<" repairing +"<<amount<<std::endl;
         this->EnergyPoints -= 1;
+        std::cout<<" beReoaired() before this->HitPoints = "<<this->HitPoints<<std::endl;
         this->HitPoints += amount;
+        std::cout<<" beReoaired() after this->HitPoints = "<<this->HitPoints<<std::endl;
     }
     else
-        std::cout<<this->getName()<<" alrady dead or no more energy -_-"<<std::endl;
+    {
+        if(this->EnergyPoints == 0)
+            std::cout<<this->getName()<<" no more energy -_-"<<std::endl;
+        else if(this->HitPoints == 0)
+            std::cout<<this->getName()<<" dead no more HP -_-"<<std::endl;
+    }
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-    if(this->HitPoints > 0)
+    if(this->HitPoints > 0 && this->EnergyPoints > 0)
     {
         std::cout<<this->getName()<<" is getting damaged losing "<<amount<<"HP"<<std::endl;
+        std::cout<<" takeDamege() before this->HitPoints = "<<this->HitPoints<<std::endl;
         this->HitPoints -= amount;
-    }else
-        std::cout<<this->getName()<<" alrady dead or no more energy -_-"<<std::endl;
+        std::cout<<" takeDamege() after this->HitPoints = "<<this->HitPoints<<std::endl;
+    }
+    else
+    {
+        if(this->EnergyPoints == 0)
+            std::cout<<this->getName()<<" no more energy -_-"<<std::endl;
+        else if(this->HitPoints == 0)
+            std::cout<<this->getName()<<" dead no more HP -_-"<<std::endl;
+    }
 }
 
 std::string ClapTrap::getName() const
 {
     return (this->Name);
 }
-unsigned int ClapTrap::getHitPoints() const
+int ClapTrap::getHitPoints() const
 {
     return (this->HitPoints);
 }
-unsigned int ClapTrap::getEnergyPoints() const
+int ClapTrap::getEnergyPoints() const
 {
     return (this->EnergyPoints);
 }
-unsigned int ClapTrap::getAttackDamage() const
+int ClapTrap::getAttackDamage() const
 {
     return (this->AttackDamage);
 }

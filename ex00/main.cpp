@@ -6,14 +6,6 @@ int main()
     ClapTrap afnane("afnane");
 
     mossab.attack(afnane.getName());
-    afnane.takeDamage(5);
-    afnane.takeDamage(5);
-    afnane.takeDamage(5);
-    afnane.takeDamage(5);
-    afnane.takeDamage(5);
-    afnane.takeDamage(5);
-    afnane.takeDamage(5);
-    std::cout<<afnane.getName()<<" before reparing "<<afnane.getHitPoints()<<std::endl;
-    afnane.beRepaired(5);
-    std::cout<<afnane.getName()<<" after reparing "<<afnane.getHitPoints()<<std::endl;
+    afnane.takeDamage(4);
+    afnane.beRepaired(4);
 }
