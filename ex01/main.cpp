@@ -8,6 +8,6 @@ void print(std::string text)
 
 int main()
 {
-    ClapTrap mossab("mossab");
-    ScavTrap afnane("afnane");
+    ScavTrap afnane;
+    ClapTrap mossab;
 }

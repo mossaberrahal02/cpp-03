@@ -6,7 +6,9 @@ HitPoints(10),
 EnergyPoints(10),
 AttackDamage(0)
 {
+    SetColor(GREEN);
     std::cout<<"ClapTrap Default constructor called"<<std::endl;
+    ResetColor();
     std::cout<<"An anonymous ClapTrap created"<<std::endl;
     std::cout<<"    * Energy Pointes = "<<this->getEnergyPoints()<<std::endl;
 }
@@ -20,7 +22,9 @@ ClapTrap::~ClapTrap()
 
 ClapTrap::ClapTrap(const ClapTrap& Obj)
 {
+    SetColor(BLUE);
     std::cout<<"ClapTrap Copy constructor called"<<std::endl;
+    ResetColor();
     this->Name = Obj.getName();
     this->HitPoints = Obj.getHitPoints();
     this->EnergyPoints = Obj.getEnergyPoints();
@@ -29,7 +33,9 @@ ClapTrap::ClapTrap(const ClapTrap& Obj)
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& Obj)
 {
+    SetColor(BLUE);
     std::cout<<"ClapTrap Copy assignement operator called"<<std::endl;
+    ResetColor();
     if(this != &Obj)
     {
         this->Name = Obj.getName();
