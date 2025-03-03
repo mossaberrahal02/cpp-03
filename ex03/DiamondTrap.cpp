@@ -65,3 +65,8 @@ void DiamondTrap::setName(std::string Name)
 {
     this->Name = Name;
 }
+
+void DiamondTrap::whoAmI()
+{
+    std::cout<<"hello i'm "<<this->getName()<<std::endl;
+}
