@@ -10,5 +10,4 @@ void print(std::string text)
 
 int main()
 {
-    DiamondTrap diamondTrap("test");
 }

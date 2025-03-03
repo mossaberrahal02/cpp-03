@@ -14,10 +14,14 @@ DiamondTrap::DiamondTrap() : ClapTrap(),  FragTrap(), ScavTrap()
 
 DiamondTrap::DiamondTrap(std::string Name):ClapTrap(Name), FragTrap(Name), ScavTrap(Name)
 {
-    this->Name = Name;
     SetColor(GREEN);
     std::cout<<"DiamondTrap Parametrized constructor called"<<std::endl;
     ResetColor();
+
+    this->Name = ClapTrap::getName()+"_clap_name";
+    this->setHitPoints(FragTrap::getHitPoints());
+    this->setEnergyPoints(ScavTrap::getEnergyPoints());
+    this->setAttackDamage(FragTrap::getAttackDamage());
     std::cout<<this->getName()<<" created"<<std::endl;
     std::cout<<"    * Energy Pointes = "<<this->getEnergyPoints()<<std::endl;
     std::cout<<"    * Hit Points = "<<this->getHitPoints()<<std::endl;

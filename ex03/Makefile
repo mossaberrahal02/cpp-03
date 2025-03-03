@@ -1,6 +1,6 @@
 NAME=out
 CXXFLAGS=-Wall -Wextra -Werror
-CXX=c++ -std=c++98
+CXX=c++ -std=c++98 -Wno-shadow
 CPP_FILES=main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 O_FILES=${CPP_FILES:.cpp=.o}
 
